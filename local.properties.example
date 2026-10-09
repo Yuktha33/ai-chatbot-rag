@@ -1,0 +1,4 @@
+# Copy to local.properties (gitignored) and fill in.
+spring.datasource.password=your-postgres-password
+# generate with: openssl rand -base64 48
+jwt.secret=paste-a-random-base64-string-here

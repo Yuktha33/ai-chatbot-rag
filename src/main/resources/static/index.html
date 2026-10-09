@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Chatbot</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <section id="auth" class="card">
+    <h1>AI Chatbot</h1>
+    <div class="tabs">
+      <button id="tab-login" class="active">Log in</button>
+      <button id="tab-register">Register</button>
+    </div>
+    <form id="auth-form">
+      <input id="username" placeholder="Username" autocomplete="username" required minlength="3">
+      <input id="password" type="password" placeholder="Password" autocomplete="current-password" required minlength="6">
+      <button type="submit" id="auth-submit">Log in</button>
+      <p id="auth-msg" class="msg" role="alert"></p>
+    </form>
+  </section>
+
+  <div id="app" hidden>
+    <aside id="sidebar">
+      <button id="new-chat">+ New chat</button>
+      <ul id="convos"></ul>
+      <details id="kb" open>
+        <summary>Knowledge base</summary>
+        <p class="hint">Upload PDF, DOCX, TXT, MD, HTML or CSV. The bot searches them when you chat.</p>
+        <input type="file" id="file" accept=".pdf,.txt,.md,.docx,.html,.csv" hidden>
+        <button id="upload" type="button">Upload document</button>
+        <p id="kb-msg" class="msg" role="status"></p>
+        <ul id="docs" class="mini"></ul>
+      </details>
+      <details id="mem">
+        <summary>What I remember about you</summary>
+        <ul id="memories" class="mini"></ul>
+      </details>
+      <div class="user"><span id="whoami"></span><button id="logout">Log out</button></div>
+    </aside>
+    <main>
+      <div id="messages"></div>
+      <form id="chat-form">
+        <label class="toggle" title="Search your uploaded documents"><input type="checkbox" id="use-docs" checked> Docs</label>
+        <textarea id="input" rows="1" placeholder="Message the AI…" maxlength="5000" required></textarea>
+        <button type="submit" id="send">Send</button>
+      </form>
+    </main>
+  </div>
+
+  <script src="/js/app.js"></script>
+</body>
+</html>
